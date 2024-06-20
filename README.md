@@ -1,20 +1,17 @@
-<!-- Remove the following content when using this template for create repo for project! -->
-This repository serves as a template for all my future project repositories. It contains the common structure, configurations, and files that I use across my projects. The purpose of this repository template is to maintain consistency and standardization across my projects. By using this template, I ensure that all my repositories follow a similar structure and setup, making it easier to manage and maintain them.
-
-While this template is primarily for personal use, contributions and suggestions for improvements are always welcome. If you have ideas for enhancing the template or making it more useful, feel free to submit a pull request or open an issue.
-<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXS -->
-
-# Project Title
+# Authentication API (In Dev.)
 
 ## Description
 
+This API service offers a secure and hassle-free authentication solution for your applications. By integrating this API, developers can easily register users, verify user credentials, change passwords, and delete users, all without the need to store user credentials locally or defining any logic for authentication. The API returns a unique ID for each registered user, simplifying user management. To use this service, simply pull the Docker image from DockerHub, provide the required environment variables for the database, and use a PostgreSQL 13 image along with the application image. Use this API to streamline user authentication in your applications, while ensuring the security of user credentials.
+
 ## Tech Stack
 
-![Image Alt](https://skillicons.dev/icons?i=js,ts)
+![Image Alt](https://skillicons.dev/icons?i=nodejs,express,postgres,bash,jest,docker)
 
-## How it looks?
-## Features
+## API Documentation
+
 ## How to run the project?
+
 ## Author
 
 [Dev Shah](https://github.com/busycaesar)
