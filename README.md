@@ -10,6 +10,8 @@ This API service offers a secure and hassle-free authentication solution for you
 
 ## API Documentation
 
+[Documentation](https://github.com/busycaesar/Authentication_APIs/blob/Master/api.md)
+
 ## How to run the project?
 
 ## Author
