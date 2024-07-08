@@ -14,32 +14,55 @@ All responses will have the following object with these properties.
 
 ### `POST /api/auth/register-user`
 
-Description: Register a new user. Successful response contains the status code 201.
+**Description**: Register a new user. Successful response contains the status code 201.
 
-Request Body: username and password
+**Request Body**:
+```js
+{
+  "username": "string",
+  "password": "string"
+}
+```
 
-Response Body: Unique id for the registered user.
+**Response Body**: Unique id for the registered user.
 
 ### `POST /api/auth/validate-user`
 
-Description: Validate an existing user. Successful response contains the status code 200.
+**Description**: Validate an existing user. Successful response contains the status code 200.
 
-Request Body: username and password
+**Request Body**:
+```js
+{
+  "username": "string",
+  "password": "string"
+}
+```
 
 ## User Information
 
 ### `PATCH /api/user/:id`
 
-Description: Update existing user's username. Successful response contains the status code 200.
+**Description**: Update existing user's username. Successful response contains the status code 200.
 
-Request Body: username
+**Request Body**:
+```js
+{
+  "username": "string"
+}
+```
 
 ### `PATCH /api/user/password/:id`
 
-Description: Update existing user's passwqord. Successful response contains the status code 200.
+**Description**: Update existing user's passwqord. Successful response contains the status code 200.
 
-Request Body: oldPassword and newPassword
+**Request Body**:
+```js
+{
+  "oldPassword": "string",
+  "newPassword": "string"
+}
+```
 
 ### `DELETE /api/user/:id`
 
-Description: Delete existing user. Successful response contains the status code 200.
+**Description**: Delete existing user. Successful response contains the status code 200.
