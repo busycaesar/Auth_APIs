@@ -82,6 +82,10 @@ If you are using the same PostgreSQL image for storing your application data, en
 All the API endpoints provided by the `auth-api` service can be accessed from the following link:
 [API Endpoints Documentation](./api.md).
 
+## Step 4: Protecting Routes with JWT Middleware
+
+For handling JWT tokens, including validation and protecting routes, please refer to the API Documentation where detailed instructions are provided.
+
 ## Conclusion
 
 By following this guide, you can successfully set up the authentication service using Docker and protect your routes using JWT tokens. Make sure to customize the environment variables and adjust the settings according to your project’s needs.
