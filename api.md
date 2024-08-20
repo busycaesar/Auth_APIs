@@ -24,7 +24,13 @@ All responses will have the following object with these properties.
 }
 ```
 
-**Response Body**: Unique id for the registered user.
+**Response Body**:
+```js
+{
+  "userId": "string",
+  "jwt": "string"
+}
+```
 
 ### `POST /api/auth/validate-user`
 
@@ -35,6 +41,33 @@ All responses will have the following object with these properties.
 {
   "username": "string",
   "password": "string"
+}
+```
+
+**Response Body**:
+```js
+{
+  "userId": "string",
+  "jwt": "string"
+}
+```
+
+### `POST /api/auth/validate-jwt`
+
+**Description**: Validate the jwt token of an existing user.
+
+**Request Headers**:
+```js
+{
+  "Authorization": "jwt <jwt token>"
+}
+```
+
+**Response Body**:
+```js
+{
+  "id": number,
+  "username": string
 }
 ```
 
