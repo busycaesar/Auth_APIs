@@ -8,13 +8,9 @@ This API service provides developers with a simple way to handle user authentica
 
 ![Image Alt](https://skillicons.dev/icons?i=nodejs,express,postgres,bash,jest,docker)
 
-## API Documentation
+## [API Documentation](./api.md)
 
-[Documentation](./api.md)
-
-## How to use the project?
-
-[Documentation](./documentation.md)
+## [How to use the project?](./documentation.md)
 
 ## Author
 
