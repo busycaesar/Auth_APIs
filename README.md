@@ -1,4 +1,4 @@
-# Authentication API
+# Auth API
 
 ## Description
 
