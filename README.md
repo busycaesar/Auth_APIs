@@ -16,6 +16,12 @@ Even though this service handles the heavy lifting of authentication, all data i
 
 ## [How to use the project?](./documentation.md)
 
+## Features
+
+- User Authentication
+- Password Hashing
+- JWT Verification
+
 ## Author
 
 [Dev Shah](https://github.com/busycaesar)
