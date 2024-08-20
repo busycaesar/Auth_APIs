@@ -23,9 +23,9 @@ WORKDIR /backend
 
 COPY --from=development /backend /backend
 
-CMD [ "npm", "start" ]
+CMD [ "node", "src/server.js" ]
 
-EXPOSE ${PORT}
+EXPOSE ${APP_PORT}
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
- CMD curl --fail localhost:${PORT} || exit 1
+ CMD curl --fail localhost:${APP_PORT} || exit 1
