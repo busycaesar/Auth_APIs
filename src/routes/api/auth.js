@@ -110,7 +110,7 @@ router.post("/validate-jwt", async (req, res) => {
       if (!user)
         return res.status(401).json(response(false, "Invalid JWT Token"));
 
-      res.json(response(true, "Valid JWT Token", user));
+      res.json(response(true, "Valid JWT Token", { user: user }));
     })(req, res);
   } catch (error) {
     res.status(500).json(response(false, error.message));
