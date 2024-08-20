@@ -2,7 +2,9 @@ const app = require("./app");
 require("dotenv").config();
 const { createTables } = require("./db");
 
-const PORT = process.env.PORT || 7000;
+const PORT = process.env.PORT;
+
+if (!PORT) process.exit(1);
 
 app.listen(PORT, async () => {
   // Create all the required tables.

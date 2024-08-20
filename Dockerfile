@@ -1,3 +1,4 @@
+# Stage 1: Install all the dependencies.
 FROM node:20.10.0 AS dependencies
 
 WORKDIR /backend
@@ -6,6 +7,7 @@ COPY package* ./
 
 RUN npm install
 
+# Stage 2: Copy the src directory.
 FROM node:20.10.0 AS development
 
 WORKDIR /backend
@@ -14,6 +16,7 @@ COPY --from=dependencies /backend /backend
 
 COPY ./src ./src
 
+# Stage 3: Start the backend server.
 FROM node:20.10.0
 
 WORKDIR /backend
