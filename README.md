@@ -1,4 +1,4 @@
-# Authentication API (In Dev.)
+# Authentication API
 
 ## Description
 
@@ -10,9 +10,11 @@ This API service provides developers with a simple way to handle user authentica
 
 ## API Documentation
 
-[Documentation](https://github.com/busycaesar/Authentication_APIs/blob/Master/api.md)
+[Documentation](./api.md)
 
-## How to run the project?
+## How to use the project?
+
+[Documentation](./documentation.md)
 
 ## Author
 
