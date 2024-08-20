@@ -19,8 +19,8 @@ Even though this service handles the heavy lifting of authentication, all data i
 ## Features
 
 - User Authentication
-- Password Hashing
-- JWT Verification
+- Password Management
+- JWT Token Generation, Validation and Middleware Integration
 
 ## Author
 
