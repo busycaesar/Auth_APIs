@@ -1,6 +1,5 @@
-const express = require("express");
-const router = express.Router();
-const resMessage = require("../responseFormat");
+const router = require("../router");
+const response = require("../response");
 const {
   updateUser,
   deleteUser,
@@ -20,7 +19,7 @@ router.patch("/:id", async (req, res) => {
     return res
       .status(400)
       .json(
-        resMessage(
+        response(
           false,
           `Insufficient information received. Please check the requirements of this api.`
         )
@@ -30,9 +29,9 @@ router.patch("/:id", async (req, res) => {
 
   try {
     const result = await updateUser(id, username);
-    res.status(200).json(resMessage(true, result));
+    res.status(200).json(response(true, result));
   } catch (error) {
-    res.status(500).json(resMessage(false, error.message));
+    res.status(500).json(response(false, error.message));
   }
 });
 
@@ -46,7 +45,7 @@ router.patch("/password/:id", async (req, res) => {
     return res
       .status(400)
       .json(
-        resMessage(
+        response(
           false,
           `Insufficient information received. Please check the requirements of this api.`
         )
@@ -62,15 +61,15 @@ router.patch("/password/:id", async (req, res) => {
     if (!isSamePassword)
       return res
         .status(403)
-        .json(resMessage(false, `The old password passed is incorrect.`));
+        .json(response(false, `The old password passed is incorrect.`));
 
     // Hash the new password.
     const hashedPassword = await hashPassword(newPassword);
 
     const result = await updateUserPassword(id, hashedPassword);
-    res.status(200).json(resMessage(true, result));
+    res.status(200).json(response(true, result));
   } catch (error) {
-    res.status(500).json(resMessage(false, error.message));
+    res.status(500).json(response(false, error.message));
   }
 });
 
@@ -82,7 +81,7 @@ router.delete("/:id", async (req, res) => {
     return res
       .status(400)
       .json(
-        resMessage(
+        response(
           false,
           `Insufficient information received. Please check the requirements of this api.`
         )
@@ -92,9 +91,9 @@ router.delete("/:id", async (req, res) => {
 
   try {
     const result = await deleteUser(id);
-    res.status(200).json(resMessage(true, result));
+    res.status(200).json(response(true, result));
   } catch (error) {
-    res.status(500).json(resMessage(false, error.message));
+    res.status(500).json(response(false, error.message));
   }
 });
 

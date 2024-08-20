@@ -2,13 +2,15 @@ const app = require("./app");
 require("dotenv").config();
 const { createTables } = require("./db");
 
-const PORT = process.env.PORT || 7000;
+const APP_PORT = process.env.APP_PORT;
 
-app.listen(PORT, async () => {
+if (!APP_PORT) process.exit(1);
+
+app.listen(APP_PORT, async () => {
   // Create all the required tables.
   try {
     await createTables();
-    console.log(`Server started on PORT: ${PORT}`);
+    console.log(`Server started on PORT: ${APP_PORT}`);
   } catch (error) {
     console.log(`Could not start the server. ${error}`);
   }

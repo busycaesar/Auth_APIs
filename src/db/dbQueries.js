@@ -6,7 +6,10 @@ const createTables = () => {
     const createTableQuery = fs.readFileSync("src/db/tables.sql", "utf8");
     pool
       .query(createTableQuery)
-      .then(() => resolve("All tables created."))
+      .then(() => {
+        console.log("All tables created.");
+        resolve();
+      })
       .catch((error) =>
         reject(
           new Error(

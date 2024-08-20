@@ -1,6 +1,5 @@
-const express = require("express");
-const router = express.Router();
-const resMessage = require("../responseFormat");
+const router = require("../router");
+const response = require("../response");
 const {
   addNewUser,
   isUniqueUser,
@@ -8,6 +7,7 @@ const {
   getUserId,
 } = require("../../db");
 const { hashPassword, checkPassword } = require("./password");
+const { generateJWTToken, passport } = require("../../jwt");
 
 router.post("/register-user", async (req, res) => {
   // Get the user data.
@@ -20,7 +20,7 @@ router.post("/register-user", async (req, res) => {
     return res
       .status(400)
       .json(
-        resMessage(
+        response(
           false,
           `Insufficient information received. Please check the requirements of this api.`
         )
@@ -36,17 +36,20 @@ router.post("/register-user", async (req, res) => {
     // Add new user.
     const { _id, _username } = await addNewUser(username, hashedPassword);
 
+    // Get JWT token for the user.
+    const jwtToken = generateJWTToken(_id, _username);
+
     res
-      .status(200)
+      .status(201)
       .json(
-        resMessage(
+        response(
           true,
           `${_username} is registered. Make sure to store this id for future requests.`,
-          _id
+          { userId: _id, jwt: jwtToken }
         )
       );
   } catch (error) {
-    res.status(500).json(resMessage(false, error.message));
+    res.status(500).json(response(false, error.message));
   }
 });
 
@@ -61,7 +64,7 @@ router.post("/validate-user", async (req, res) => {
     return res
       .status(400)
       .json(
-        resMessage(
+        response(
           false,
           `Insufficient information received. Please check the requirements of this api.`
         )
@@ -77,14 +80,40 @@ router.post("/validate-user", async (req, res) => {
     if (!isSamePassword)
       return res
         .status(403)
-        .json(resMessage(false, `The password for ${username} is incorrect.`));
+        .json(response(false, `The password for ${username} is incorrect.`));
 
     // Get the user id.
     const userId = await getUserId(username);
 
-    res.status(200).json(resMessage(true, `${username} is validated.`, userId));
+    // Get JWT token for the user.
+    const jwtToken = generateJWTToken(userId, username);
+
+    res.status(200).json(
+      response(true, `${username} is validated.`, {
+        userId: userId,
+        jwt: jwtToken,
+      })
+    );
   } catch (error) {
-    res.status(500).json(resMessage(false, error.message));
+    res.status(500).json(response(false, error.message));
+  }
+});
+
+router.post("/validate-jwt", async (req, res) => {
+  console.log("Request to validate the jwt.");
+
+  try {
+    passport.authenticate("jwt", { session: false }, (err, user, info) => {
+      if (err)
+        return res.status(500).json(response(false, "Internal server error"));
+
+      if (!user)
+        return res.status(401).json(response(false, "Invalid JWT Token"));
+
+      res.json(response(true, "Valid JWT Token", { user: user }));
+    })(req, res);
+  } catch (error) {
+    res.status(500).json(response(false, error.message));
   }
 });
 

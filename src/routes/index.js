@@ -1,6 +1,5 @@
-const express = require("express");
-const router = express.Router();
-const resMessage = require("./responseFormat");
+const router = require("./router");
+const response = require("./response");
 const info = require("../../package.json");
 const { dbHealthCheck } = require("../db");
 
@@ -14,20 +13,20 @@ router.get("/", async (req, res) => {
     console.log("Healthy DB", _dbHealthCheck);
     res.setHeader("Cache-Control", "no-cache");
     res.status(200).json(
-      resMessage(true, "Healthy", {
+      response(true, "Healthy", {
         Version: info.version,
         DB: _dbHealthCheck,
       })
     );
   } catch (error) {
-    res.status(500).json(resMessage(false, "Error while health check."));
+    res.status(500).json(response(false, "Error while health check."));
     console.error("Error while health check.", error);
   }
 });
 
 // POST Routes.
 router.use((req, res) =>
-  res.status(404).json(resMessage(false, "Route does not exist.", null))
+  res.status(404).json(response(false, "Route does not exist.", null))
 );
 
 module.exports = router;
