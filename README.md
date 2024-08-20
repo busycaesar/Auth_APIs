@@ -2,7 +2,7 @@
 
 ## Description
 
-This API service offers a secure and hassle-free authentication solution for your applications. By integrating this API, developers can easily register users, verify user credentials, change passwords, and delete users, all without the need to store user credentials locally or defining any logic for authentication. The API returns a unique ID for each registered user, simplifying user management. To use this service, simply pull the Docker image from DockerHub, provide the required environment variables for the database, and use a PostgreSQL 13 image along with the application image. Use this API to streamline user authentication in your applications, while ensuring the security of user credentials.
+This API service provides developers with a simple way to handle user authentication in their applications. It offers ready-to-use APIs for registering users, verifying credentials, changing passwords, and deleting users, eliminating the need to write and manage authentication logic for each application. The service also generates and verifies JWT tokens, making it easier to secure user sessions. With a fully contained Docker image, you don’t need to manage a separate PostgreSQL instance—just pull the image, set up the required environment variables, and start authenticating users with minimal effort.
 
 ## Tech Stack
 
