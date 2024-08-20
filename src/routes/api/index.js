@@ -1,5 +1,4 @@
-const express = require("express");
-const router = express.Router();
+const router = require("../router");
 
 // Authentication APIs
 router.use("/auth", require("./auth"));
