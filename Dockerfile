@@ -5,7 +5,7 @@ WORKDIR /backend
 
 COPY package* ./
 
-RUN npm install
+RUN npm install --only=production
 
 # Stage 2: Copy the src directory.
 FROM node:20.10.0 AS development
@@ -23,7 +23,7 @@ WORKDIR /backend
 
 COPY --from=development /backend /backend
 
-CMD [ "node", "src/server.js" ]
+CMD [ "npm", "start" ]
 
 EXPOSE ${PORT}
 
