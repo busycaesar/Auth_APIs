@@ -80,7 +80,7 @@ If you are using the same PostgreSQL image for storing your application data, en
 ## Step 3: Setting Up the API Endpoints
 
 All the API endpoints provided by the `auth-api` service can be accessed from the following link:
-[API Endpoints Documentation](../api/md).
+[API Endpoints Documentation](./api/md).
 
 ## Conclusion
 
