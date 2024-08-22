@@ -1,7 +1,6 @@
-
 # Application Documentation
 
-This document provides a step-by-step guide for setting up and running the Auth API service using Docker and PostgreSQL.
+This document provides a step-by-step guide for setting up and running the Auth APIs service using Docker and PostgreSQL.
 
 ## Prerequisites
 
