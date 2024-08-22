@@ -1,7 +1,6 @@
-
 # API Documentation
 
-This document provides an overview of the API endpoints provided by the Auth API service. Each endpoint includes a description, request format, and expected response format.
+This document provides an overview of the API endpoints provided by the Auth APIs service. Each endpoint includes a description, request format, and expected response format.
 
 ## Index
 
